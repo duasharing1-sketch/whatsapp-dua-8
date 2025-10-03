@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Share Du'a on WhatsApp</title>
+</head>
+<body>
+<a id="manualLink" href="#" target="_blank" style="display:none;">Open WhatsApp</a>
+
+<script>
+const encodedText = "*Who%20can%20harm%20you%20when%20Allah%20defends%20you%3F*%0A%0AThis%20powerful%20du%E2%80%99a%20calls%20upon%20Allah%20%E2%80%94%20by%20His%20Names%20Al-%E2%80%98Aziz%20(The%20All-Powerful)%2C%20Al-Qahh%C4%81r%20(The%20Subduer)%2C%20and%20An-Nas%C4%ABr%20(The%20Giver%20of%20Victory)%20%E2%80%94%20to%20grant%20us%20strength%2C%20protection%2C%20and%20triumph%20over%20every%20enemy%2C%20whether%20they%20are%20visible%20or%20hidden%2C%20human%20or%20jinn.%0A%0ABecause%20true%20victory%20comes%20not%20from%20numbers%20or%20might%20%E2%80%94%20but%20from%20the%20One%20who%20never%20loses.%0A%0AAs%20Allah%20says%20in%20the%20Qur%E2%80%99an%3A%0A%0A%E2%80%9CAnd%20sufficient%20is%20Allah%20as%20an%20ally%2C%20and%20sufficient%20is%20Allah%20as%20a%20helper.%E2%80%9D%20(Qur%E2%80%99an%204%3A45)%0A%0A*Ya%20Allah%20(O%20Allah)%2C%20Ya%20Aziz%20(O%20All-Powerful)%2C%20Ya%20Qahhar%20(O%20Subduer)%2C%20Ya%20Nasir%20(O%20Giver%20of%20Victory)%2C%20grant%20us%20strength%20and%20power%20over%20our%20enemies%2C%20and%20complete%20victory%20over%20them%2C%20whether%20they%20are%20known%20to%20us%20or%20hidden%20from%20us.%20Whether%20they%20are%20from%20among%20the%20humans%20or%20from%20among%20the%20jinn.%20Surround%20us%20with%20Your%20might%20and%20authority%2C%20and%20shield%20us%20with%20Your%20divine%20protection.%20Render%20their%20schemes%20ineffective%2C%20their%20plans%20futile%2C%20and%20their%20efforts%20powerless%20against%20us.%20Make%20us%20steadfast%20in%20righteousness%2C%20and%20grant%20us%20victory%20in%20ways%20that%20are%20pleasing%20to%20You.*%0A%0AThis%20du'a%20is%20part%20of%20*The%20Supplication%20of%20Infinite%20Blessings*%20%E2%80%94%20a%20powerful%20collection%20of%20heartfelt%20supplications%20designed%20to%20benefit%20you%20in%20both%20this%20life%20and%20the%20next.%0A%0A*At%20Dua%20Sharing%2C%20our%20mission%20is%20simple*%3A%20%0ATo%20encourage%20sincere%20du'a%2C%20meaningful%20sharing%2C%20and%20to%20multiply%20blessings%20through%20a%20growing%20global%20chain%20of%20people%20making%20dua%20for%20one%20another%20every%20single%20day.%0A%0AAs%20Rasulullah%20%E2%80%BF%20said%3A%20%0A%0A%E2%80%9CThe%20supplication%20of%20a%20Muslim%20for%20his%20brother%20in%20his%20absence%20will%20certainly%20be%20answered.%20Every%20time%20he%20makes%20a%20supplication%20for%20good%20for%20his%20brother%2C%20the%20angel%20appointed%20for%20this%20task%20says%3A%20%E2%80%98Ameen!%20And%20may%20it%20be%20for%20you%20too.%E2%80%9D%0A%0AEvery%20post%20we%20share%20is%20taken%20directly%20from%20the%20full%20Supplication%20of%20Infinite%20Blessings%20%E2%80%94%20with%20the%20aim%20of%20moving%20hearts%2C%20inspiring%20action%2C%20and%20reminding%20us%20all%20of%20what%20truly%20matters.%0A%0AAccess%20the%20full%20supplication%20in%20both%20English%20and%20Arabic%20at%3A%20https%3A%2F%2Fwww.duasharing.com%0A%0AWhen%20you%20share%20this%20post%2C%20you%E2%80%99re%20not%20simply%20sharing%20a%20dua.%20You%E2%80%99re%20opening%20the%20door%20to%20millions%20of%20people%20making%20sincere%20du'a%20for%20you%20%E2%80%94%20with%20the%20Malaika%20(Angels)%20themselves%20saying%20%E2%80%9CAmeen%E2%80%9D%20to%20every%20single%20one.%0A%0AMay%20Allah%20accept%20it%20from%20you%2C%20and%20from%20everyone%20it%20reaches%20through%20you.%0A%0AAmeen";
+
+const waProtocol = "whatsapp://send?text=" + encodedText;
+const waWeb = "https://wa.me/?text=" + encodedText;
+
+const manualLink = document.getElementById('manualLink');
+manualLink.href = waWeb;
+
+async function tryShare() {
+  if (navigator.share) {
+    try { await navigator.share({ text: decodeURIComponent(encodedText) }); return; }
+    catch (err) { console.warn(err); }
+  }
+  try { window.location.href = waProtocol; setTimeout(() => { window.location.href = waWeb; }, 1200); }
+  catch (e) { window.location.href = waWeb; }
+}
+
+window.addEventListener('load', tryShare);
+</script>
+</body>
+</html>
